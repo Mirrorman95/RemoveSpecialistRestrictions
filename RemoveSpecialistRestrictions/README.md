@@ -4,7 +4,7 @@ A Planescape: Torment: Enhanced Edition mod that removes most class specializati
 Installation:
 1. Extract this archive into your "Planescape Torment - Enhanced Edition" folder.
 2. Run setup-RemoveSpecialistRestrictions.exe file from that directory.
-3. Select the components you want to install by typing Y then Enter, and decline the components you don't want to install with N then Enter. There is currently only one component in this mod.
+3. Select the components you want to install by typing I then Enter, and decline the components you don't want to install with N then Enter. There is currently only one component in this mod.
 4. If you want to uninstall any or all installed components of a mod, you need to run the installer again, which will give you prompts to install, uninstall, or reinstall every component of the mod.
 5. If you want to update this mod to a newer version, DO NOT override the old files with the new ones before uninstalling the old version, or it could permanently ruin your game. First, you MUST run the installer again to COMPLETELY uninstall the mod, then delete it from your PsT:EE folder. Only then can you install the new version.
 

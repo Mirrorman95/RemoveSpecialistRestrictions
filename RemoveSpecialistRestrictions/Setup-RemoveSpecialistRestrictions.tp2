@@ -3,11 +3,11 @@ BACKUP ~RemoveSpecialistRestrictions/backup~
 AUTHOR ~Mirrorman95~
 VERSION ~1~
 
-README ~README.md~ //The readme is only in English
+README ~RemoveSpecialistRestrictions/README.md~ //The readme is only in English
 
 //Primary component; edits Fell, Coaxmetal, Ravel, & Korur's sale/dialog triggers
 BEGIN ~Remove Specialist Restrictions from stores & dialog~
-	REQUIRE_PREDICATE (GAME_IS ~pstee~)  // This mod is only for PsT:EE.
+REQUIRE_PREDICATE (GAME_IS ~pstee~) ~This mod is only for PsT:EE.~
 //Edit sale triggers for specialist-restricted tattoos in Fell's store
 //They will now unlock for class level as well as specialization
 COPY_EXISTING ~fell.sto~ ~override~
@@ -71,20 +71,20 @@ COPY_EXISTING ~coax.sto~ ~override~
 //Edits Ravel's dialog triggers for mage specialists being taught the Art
 COPY_EXISTING ~dravel.dlg~ ~override~
 	DECOMPILE_AND_PATCH BEGIN
-	//REPLACE_TRIGGER_TEXT ~dravel~ ~oldText~ ~newText~
-	//replaces every instance of oldText in the dlg's trigger strings w/ newText
+	//REPLACE_TEXTUALLY ~oldText~ ~newText~
+	//replaces every instance of oldText in the dlg w/ newText
 	//This will modify DRAVEL.DLG's Response triggers 231-240
-		REPLACE_TRIGGER_TEXT ~dravel~ ~Global("Specialist","GLOBAL",3)\n~ ~(Global("Specialist","GLOBAL",3) || ClassLevelGT(Protagonist,MAGE,6))\n~
-		REPLACE_TRIGGER_TEXT ~dravel~ ~Global("Specialist","GLOBAL",6)\n~ ~(Global("Specialist","GLOBAL",6) || ClassLevelGT(Protagonist,MAGE,11))\n~
+		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",3)\n~ ~(Global("Specialist","GLOBAL",3) || ClassLevelGT(Protagonist,MAGE,6))\n~
+		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",6)\n~ ~(Global("Specialist","GLOBAL",6) || ClassLevelGT(Protagonist,MAGE,11))\n~
 	END
 
 //Edits Korur's dialog triggers for warrior specialists being taught 3+ Weapon Proficiencies
 COPY_EXISTING ~dkorur.dlg~ ~override~
 	DECOMPILE_AND_PATCH BEGIN
-	//REPLACE_TRIGGER_TEXT ~dkorur~ ~oldText~ ~newText~
-	//replaces every instance of oldText in the dlg's trigger strings w/ newText
+	//REPLACE_TEXTUALLY ~oldText~ ~newText~
+	//replaces every instance of oldText in the dlg w/ newText
 	//This will modify DKORUR.DLG's Response Triggers 13-42
-		REPLACE_TRIGGER_TEXT ~dkorur~ ~Global("Specialist","GLOBAL",1)\n~ ~(Global("Specialist","GLOBAL",1) || ClassLevelGT(Protagonist,FIGHTER,6))\n~
-		REPLACE_TRIGGER_TEXT ~dkorur~ ~Global("Specialist","GLOBAL",4)\n~ ~(Global("Specialist","GLOBAL",4) || ClassLevelGT(Protagonist,FIGHTER,11)\n~
+		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",1)\n~ ~(Global("Specialist","GLOBAL",1) || ClassLevelGT(Protagonist,FIGHTER,6))\n~
+		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",4)\n~ ~(Global("Specialist","GLOBAL",4) || ClassLevelGT(Protagonist,FIGHTER,11)\n~
 	END
-END
+//END
