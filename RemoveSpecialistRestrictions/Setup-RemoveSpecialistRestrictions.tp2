@@ -1,0 +1,90 @@
+// Remove Specialist Restrictions mod for PsT:EE
+BACKUP ~RemoveSpecialistRestrictions/backup~
+AUTHOR ~Mirrorman95~
+VERSION ~1~
+
+README ~README.md~ //The readme is only in English
+
+//Primary component; edits Fell, Coaxmetal, Ravel, & Korur's sale/dialog triggers
+BEGIN ~Remove Specialist Restrictions from stores & dialog~
+	REQUIRE_PREDICATE (GAME_IS ~pstee~)  // This mod is only for PsT:EE.
+//Edit sale triggers for specialist-restricted tattoos in Fell's store
+//They will now unlock for class level as well as specialization
+COPY_EXISTING ~fell.sto~ ~override~
+	//Create array of tattoo offsets (code largely borrowed from aquadrizzt's Power of Belief mod)
+	GET_OFFSET_ARRAY tattoos 0x34 4 0x38 4 0 0 0x58 
+	// calculate sale trigger offsets...
+	PHP_EACH tattoos AS int => tt_off BEGIN 
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~QDTTPR1~) BEGIN
+			WRITE_LONG (tt_off + 0x1c) RESOLVE_STR_REF(~Global("QD_PRIEST_SPEC_7","GLOBAL",1) || ClassLevelGT(Protagonist,CLERIC,6)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~QDTTPR2~) BEGIN
+			WRITE_LONG (tt_off + 0x1c) RESOLVE_STR_REF(~Global("QD_PRIEST_SPEC_12","GLOBAL",1) || ClassLevelGT(Protagonist,CLERIC,11)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~TTFGHTR1~) BEGIN
+			WRITE_LONG (tt_off + 0x1c) RESOLVE_STR_REF(~Global("Specialist", "GLOBAL", 1) || ClassLevelGT(Protagonist,FIGHTER,6)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~TTFGHTR2~) BEGIN
+			WRITE_LONG (tt_off + 0x1c) RESOLVE_STR_REF(~Global("Specialist", "GLOBAL", 4) || ClassLevelGT(Protagonist,FIGHTER,11)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~TTMAGE1~) BEGIN
+			WRITE_LONG (tt_off + 0x1c) RESOLVE_STR_REF(~Global("Specialist", "GLOBAL", 3) || ClassLevelGT(Protagonist,MAGE,6)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~TTMAGE2~) BEGIN
+			WRITE_LONG (tt_off + 0x1c) RESOLVE_STR_REF(~Global("Specialist", "GLOBAL", 6) || ClassLevelGT(Protagonist,MAGE,11)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~TTTHF1~) BEGIN
+			WRITE_LONG (tt_off + 0x1c) RESOLVE_STR_REF(~Global("Specialist", "GLOBAL", 2) || ClassLevelGT(Protagonist,THIEF,6)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~TTTHF2~) BEGIN
+			WRITE_LONG (tt_off + 0x1c) RESOLVE_STR_REF(~Global("Specialist", "GLOBAL", 5) || ClassLevelGT(Protagonist,THIEF,11)~)
+		END
+	END
+
+//Edit sale triggers for specialist-restricted weapons in Coaxmetal's store
+//They will now unlock for class level as well as specialization
+COPY_EXISTING ~coax.sto~ ~override~
+    //Create array of weapon offsets
+	GET_OFFSET_ARRAY weapons 0x34 4 0x38 4 0 0 0x58 
+	// calculate sale trigger offsets...
+	PHP_EACH weapons AS int => cx_off BEGIN 
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~WIDMKR~) BEGIN
+			WRITE_LONG (cx_off + 0x1c) RESOLVE_STR_REF(~Class(Myself, THIEF)\nGlobal("Specialist", "GLOBAL", 5) || ClassLevelGT(Protagonist,THIEF,11)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~RBLADE~) BEGIN
+			WRITE_LONG (cx_off + 0x1c) RESOLVE_STR_REF(~Class(Myself, MAGE)\nGlobal("Specialist", "GLOBAL", 3) || ClassLevelGT(Protagonist,MAGE,6)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~KKNIFE~) BEGIN
+			WRITE_LONG (cx_off + 0x1c) RESOLVE_STR_REF(~Class(Myself, MAGE)\nGlobal("Specialist", "GLOBAL", 6) || ClassLevelGT(Protagonist,MAGE,11)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~BACKBTR~) BEGIN
+			WRITE_LONG (cx_off + 0x1c) RESOLVE_STR_REF(~Class(Myself, THIEF)\nGlobal("Specialist", "GLOBAL", 2) || ClassLevelGT(Protagonist,THIEF,6)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~BRIMHAM~) BEGIN
+			WRITE_LONG (cx_off + 0x1c) RESOLVE_STR_REF(~Class(Myself, FIGHTER)\nGlobal("Specialist", "GLOBAL", 1) || ClassLevelGT(Protagonist,FIGHTER,6)~)
+		END
+		PATCH_IF (~%itmres%~ STRING_EQUAL_CASE ~BSIDER~) BEGIN
+			WRITE_LONG (cx_off + 0x1c) RESOLVE_STR_REF(~Class(Myself, FIGHTER)\nGlobal("Specialist", "GLOBAL", 4) || ClassLevelGT(Protagonist,FIGHTER,11)~)
+		END
+	END
+
+//Edits Ravel's dialog triggers for mage specialists being taught the Art
+COPY_EXISTING ~dravel.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+	//REPLACE_TRIGGER_TEXT ~dravel~ ~oldText~ ~newText~
+	//replaces every instance of oldText in the dlg's trigger strings w/ newText
+	//This will modify DRAVEL.DLG's Response triggers 231-240
+		REPLACE_TRIGGER_TEXT ~dravel~ ~Global("Specialist","GLOBAL",3)\n~ ~(Global("Specialist","GLOBAL",3) || ClassLevelGT(Protagonist,MAGE,6))\n~
+		REPLACE_TRIGGER_TEXT ~dravel~ ~Global("Specialist","GLOBAL",6)\n~ ~(Global("Specialist","GLOBAL",6) || ClassLevelGT(Protagonist,MAGE,11))\n~
+	END
+
+//Edits Korur's dialog triggers for warrior specialists being taught 3+ Weapon Proficiencies
+COPY_EXISTING ~dkorur.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+	//REPLACE_TRIGGER_TEXT ~dkorur~ ~oldText~ ~newText~
+	//replaces every instance of oldText in the dlg's trigger strings w/ newText
+	//This will modify DKORUR.DLG's Response Triggers 13-42
+		REPLACE_TRIGGER_TEXT ~dkorur~ ~Global("Specialist","GLOBAL",1)\n~ ~(Global("Specialist","GLOBAL",1) || ClassLevelGT(Protagonist,FIGHTER,6))\n~
+		REPLACE_TRIGGER_TEXT ~dkorur~ ~Global("Specialist","GLOBAL",4)\n~ ~(Global("Specialist","GLOBAL",4) || ClassLevelGT(Protagonist,FIGHTER,11)\n~
+	END
+END
