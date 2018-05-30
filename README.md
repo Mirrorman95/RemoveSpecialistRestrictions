@@ -10,10 +10,10 @@ Installation:
 
 Description:
 
-This small mod seeks to make the few items and dialog options in PsT:EE with class specialization restrictions also available to players with correspondingly high enough levels in those classes. So tattoos once only available to those who've double-specialized as mages can be purchased by any player with a Mage level of at least 12, and weapons only available to single-specialized fighters can be purchased by any player who's a Level 7 or higher Fighter, and so on.
-This mod will take care of proficiency maximums, too. Korur will train Level 7+ Fighters in up to four points in a single weapon proficiency, and up to five for Lv 12+ Fighters.
-This mod does not enable the Nameless One to have multiple class specializations beyond the maximum of two which the game allows normally, nor does it give one the associated bonuses of such extra specializations.
-The Power of Belief is currently supported, so the Priest specialization tattoos added by that mod can be purchased by a level 7+ or 12+ Priest, even without the corresponding Priest specializations.
+This small mod seeks to make the few items and dialog options in PsT:EE with class specialization restrictions also available to players with correspondingly high enough levels in those classes. So tattoos once only available to those who've double-specialized as mages can be purchased by any player with a Mage level of at least 12, and weapons only available to single-specialized fighters can be purchased by any player who's a Level 7 or higher Fighter, and so on.<br>
+This mod will take care of proficiency maximums, too. Korur will train Level 7+ Fighters in up to four points in a single weapon proficiency, and up to five for Lv 12+ Fighters.<br>
+This mod does not enable the Nameless One to have multiple class specializations beyond the maximum of two which the game allows normally, nor does it give one the associated bonuses of such extra specializations.<br>
+The Power of Belief is currently supported, so the Priest specialization tattoos added by that mod can be purchased by a level 7+ or 12+ Priest, even without the corresponding Priest specializations.<br>
 Since RemoveSpecialistRestrictions doesn't currently change any of the in-game text, this mod isn't language-specific. The installer however, and any custom spells or items that may one day be added as a supplement to the mod, will be in English.
 
 Possible Future Updates:
