@@ -22,5 +22,5 @@ I may one day be able to create a spell or item that can increase the Nameless O
 
 Special Thanks:
 
-aquadrizzt, who's Power of Belief mod greatly helped in my development of this mod
+aquadrizzt, who's Power of Belief mod greatly helped in my development of this mod<br>
 PaulaMigrate and argent77, who answered a few minor questions I had on editing triggers
