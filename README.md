@@ -27,5 +27,5 @@ PaulaMigrate and argent77, who answered a few minor questions I had on editing t
 
 To Do:
 
-Get the mod to both work and compile correctly, because it currently has no effect in-game with the way it's currently coded.<br>
+Get the mod to both work and compile correctly, because it currently has no effect in-game with the way it's currently coded. (REPLACE_TEXTUALLY doesn't do anything, REPLACE_TRIGGER_TEXT doesn't compile) <br>
 Update the exe to the latest version of WeiDU.
