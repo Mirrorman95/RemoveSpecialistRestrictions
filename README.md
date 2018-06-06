@@ -24,3 +24,8 @@ Special Thanks:
 
 aquadrizzt, who's Power of Belief mod greatly helped in my development of this mod<br>
 PaulaMigrate and argent77, who answered a few minor questions I had on editing triggers
+
+To Do:
+
+Get the mod to both work and compile correctly, because it currently has no effect in-game with the way it's currently coded.<br>
+Update the exe to the latest version of WeiDU.
