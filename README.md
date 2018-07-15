@@ -1,7 +1,7 @@
 # Remove Specialist Restrictions mod for PsT:EE
 A Planescape: Torment: Enhanced Edition mod that removes most class specialization restrictions from the game
 
-Installation:<br>
+Installation:
 1. Extract this archive into your "Planescape Torment - Enhanced Edition" folder.
 2. Run setup-RemoveSpecialistRestrictions.exe file from that directory.
 3. Select the components you want to install by typing I then Enter, and decline the components you don't want to install with N then Enter. There is currently only one component in this mod.
@@ -24,6 +24,6 @@ PaulaMigrate and argent77, who answered a few minor questions I had on editing t
 
 To Do:<br>
 //Get the mod to both work and compile correctly, because it currently has no effect in-game with the way it's currently coded. (REPLACE_TEXTUALLY doesn't do anything, REPLACE_TRIGGER_TEXT doesn't compile) <br>
-//Update the exe to the latest version of WeiDU.
-Figure out how to give the dialog response triggers syntactically correct boolean OR arguments.
+//Update the exe to the latest version of WeiDU.<br>
+Figure out how to give the dialog response triggers syntactically correct boolean OR arguments.<br>
 Figure out how to make the sales triggers replacements work, because as they're scripted now, they currently do not.
