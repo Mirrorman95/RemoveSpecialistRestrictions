@@ -77,13 +77,13 @@ Global("Specialist", "GLOBAL", 4) || ClassLevelGT(Protagonist,FIGHTER,11)~)
 //Edits Ravel's dialog triggers for mage specialists being taught the Art
 COPY_EXISTING ~DRAVEL.DLG~ ~override~
 	DECOMPILE_AND_PATCH BEGIN
-	//REPLACE_TEXTUALLY ~oldText~ ~newText~
+	//REFACTOR_TRIGGER ~oldText~ ~newText~
 	//replaces every instance of oldText in the dlg w/ newText
 	//This will modify DRAVEL.DLG's Response triggers 231-240
-		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",3)
+		REFACTOR_TRIGGER ~Global("Specialist","GLOBAL",3)
 ~ ~(Global("Specialist","GLOBAL",3) || ClassLevelGT(Protagonist,MAGE,6))
 ~
-		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",6)
+		REFACTOR_TRIGGER ~Global("Specialist","GLOBAL",6)
 ~ ~(Global("Specialist","GLOBAL",6) || ClassLevelGT(Protagonist,MAGE,11))
 ~
 	END
@@ -91,13 +91,13 @@ COPY_EXISTING ~DRAVEL.DLG~ ~override~
 //Edits Korur's dialog triggers for warrior specialists being taught 3+ Weapon Proficiencies
 COPY_EXISTING ~DKORUR.DLG~ ~override~
 	DECOMPILE_AND_PATCH BEGIN
-	//REPLACE_TEXTUALLY ~oldText~ ~newText~
+	//REFACTOR_TRIGGER ~oldText~ ~newText~
 	//replaces every instance of oldText in the dlg w/ newText
 	//This will modify DKORUR.DLG's Response Triggers 13-42
-		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",1)
+		REFACTOR_TRIGGER ~Global("Specialist","GLOBAL",1)
 ~ ~(Global("Specialist","GLOBAL",1) || ClassLevelGT(Protagonist,FIGHTER,6))
 ~
-		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",4)
+		REFACTOR_TRIGGER ~Global("Specialist","GLOBAL",4)
 ~ ~(Global("Specialist","GLOBAL",4) || ClassLevelGT(Protagonist,FIGHTER,11)
 ~
 	END 
