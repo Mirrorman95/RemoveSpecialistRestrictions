@@ -6,12 +6,12 @@ Installation:
 2. Run setup-RemoveSpecialistRestrictions.exe file from that directory.
 3. Select the components you want to install by typing I then Enter, and decline the components you don't want to install with N then Enter. There is currently only one component in this mod.
 4. If you want to uninstall any or all installed components of a mod, you need to run the installer again, which will give you prompts to install, uninstall, or reinstall every component of the mod.
-5. If you want to update this mod to a newer version, DO NOT override the old files with the new ones before uninstalling the old version, or it could permanently ruin your game. First, you MUST run the installer again to COMPLETELY uninstall the mod, then delete it from your PsT:EE folder. Only then can you install the new version.
+5. If you want to update this mod to a newer version, DO NOT override the old files with the new ones before uninstalling the old version, or it could permanently ruin your game. First, you MUST run the installer again to COMPLETELY uninstall the mod, then delete it from your PST:EE folder. Only then can you install the new version.
 
 Description:<br>
 This small mod seeks to make the few items and dialog options in PsT:EE with class specialization restrictions also available to players with correspondingly high enough levels in those classes. So tattoos once only available to those who've double-specialized as mages can be purchased by any player with a Mage level of at least 12, and weapons only available to single-specialized fighters can be purchased by any player who's a Level 7 or higher Fighter, and so on.<br>
 This mod will take care of proficiency maximums, too. Korur will train Level 7+ Fighters in up to four points in a single weapon proficiency, and up to five for Lv 12+ Fighters.<br>
-This mod does not enable the Nameless One to have multiple class specializations beyond the maximum of two which the game allows normally, nor does it give one the associated bonuses of such extra specializations.<br>
+This mod does not enable the Nameless One to have multiple class specializations beyond the maximum of two which the game allows normally, nor does it give one the associated stat bonuses of such extra specializations.<br>
 The Power of Belief is currently supported, so the Priest specialization tattoos added by that mod can be purchased by a level 7+ or 12+ Priest, even without the corresponding Priest specializations.<br>
 Since RemoveSpecialistRestrictions doesn't currently change any of the in-game text, this mod isn't language-specific. The installer however, and any custom spells or items that may one day be added as a supplement to the mod, will be in English.
 
@@ -23,7 +23,7 @@ aquadrizzt, who's Power of Belief mod greatly helped in my development of this m
 PaulaMigrate and argent77, who answered a few minor questions I had on editing triggers
 
 To Do:<br>
-//Get the mod to both work and compile correctly, because it currently has no effect in-game with the way it's currently coded. (REPLACE_TEXTUALLY doesn't do anything, REPLACE_TRIGGER_TEXT doesn't compile) <br>
+//Get the mod to both work and compile correctly, because it currently has no effect in-game with the way it's currently coded. (Putting OR conditions in response trigger lines with REPLACE_TRIGGER_TEXT breaks them, and the code I adapted from aquadrizzt's mod seems to only be capable of adding new items to shops, not editing the sales triggers of existing ones.)<br>
 //Update the exe to the latest version of WeiDU.<br>
 Figure out how to give the dialog response triggers syntactically correct boolean OR arguments.<br>
 Figure out how to make the sales triggers replacements work, because as they're scripted now, they currently do not.
