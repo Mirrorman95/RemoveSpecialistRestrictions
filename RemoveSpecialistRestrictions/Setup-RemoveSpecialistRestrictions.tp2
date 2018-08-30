@@ -77,13 +77,13 @@ Global("Specialist", "GLOBAL", 4) || ClassLevelGT(Protagonist,FIGHTER,11)~)
 //Edits Ravel's dialog triggers for mage specialists being taught the Art
 COPY_EXISTING ~DRAVEL.DLG~ ~override~
 	DECOMPILE_AND_PATCH BEGIN
-	//REFACTOR_TRIGGER ~oldText~ ~newText~
+	//REPLACE_TEXTUALLY ~oldText~ ~newText~
 	//replaces every instance of oldText in the dlg w/ newText
 	//This will modify DRAVEL.DLG's Response triggers 231-240
-		REFACTOR_TRIGGER ~Global("Specialist","GLOBAL",3)
+		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",3)
 ~ ~(Global("Specialist","GLOBAL",3) || ClassLevelGT(Protagonist,MAGE,6))
 ~
-		REFACTOR_TRIGGER ~Global("Specialist","GLOBAL",6)
+		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",6)
 ~ ~(Global("Specialist","GLOBAL",6) || ClassLevelGT(Protagonist,MAGE,11))
 ~
 	END
@@ -91,13 +91,28 @@ COPY_EXISTING ~DRAVEL.DLG~ ~override~
 //Edits Korur's dialog triggers for warrior specialists being taught 3+ Weapon Proficiencies
 COPY_EXISTING ~DKORUR.DLG~ ~override~
 	DECOMPILE_AND_PATCH BEGIN
-	//REFACTOR_TRIGGER ~oldText~ ~newText~
+	//REPLACE_TEXTUALLY ~oldText~ ~newText~
 	//replaces every instance of oldText in the dlg w/ newText
 	//This will modify DKORUR.DLG's Response Triggers 13-42
-		REFACTOR_TRIGGER ~Global("Specialist","GLOBAL",1)
+		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",1)
 ~ ~(Global("Specialist","GLOBAL",1) || ClassLevelGT(Protagonist,FIGHTER,6))
 ~
-		REFACTOR_TRIGGER ~Global("Specialist","GLOBAL",4)
+		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",4)
 ~ ~(Global("Specialist","GLOBAL",4) || ClassLevelGT(Protagonist,FIGHTER,11)
 ~
-	END 
+	END
+	
+//Edits Marquez's dialog triggers for warrior specialists being taught 3+ Weapon Proficiencies
+COPY_EXISTING ~DMARQUEZ.DLG~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+	//REPLACE_TEXTUALLY ~oldText~ ~newText~
+	//replaces every instance of oldText in the dlg w/ newText
+	//This will modify DMARQUEZ.DLG's Response Triggers 13-42
+		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",1)
+~ ~(Global("Specialist","GLOBAL",1) || ClassLevelGT(Protagonist,FIGHTER,6))
+~
+		REPLACE_TEXTUALLY ~Global("Specialist","GLOBAL",4)
+~ ~(Global("Specialist","GLOBAL",4) || ClassLevelGT(Protagonist,FIGHTER,11)
+~
+	END
+//I should point out that, currently, none of the components of this mod work as is, so no one should try to install it in their game yet. I don't know how to put OR conditions in response trigger lines without breaking them, and the code I adapted from aquadrizzt's mods seems to be only capable of adding new items to shops, not editing the sales triggers of existing ones.
